@@ -1,0 +1,13 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+input:disabled {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+textarea:disabled {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.form-field {
+  width: 280px;
+}

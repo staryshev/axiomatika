@@ -1,0 +1,40 @@
+{
+  "HEADER": {
+    "VIEW": "View",
+    "EDITOR": "Editor"
+  },
+  "DIALOG": {
+    "NAME": "Name",
+    "DATE": "Date of completion",
+    "DESCRIPTION": "Description",
+    "ADD": "Add",
+    "SAVE": "Save",
+    "CLOSE": "Close",
+    "NAME_ERROR_REQUIRED": "This field is required",
+    "NAME_ERROR_MIN_LENGTH": "The minimum length is 5 characters",
+    "NAME_ERROR_MAX_LENGTH": "The maximum length is 13 characters",
+    "TITLE-VIEW": "Viewing",
+    "TITLE-ADD": "Adding",
+    "TITLE-EDIT": "Editing"
+  },
+  "TABLE": {
+    "NAME": "Name",
+    "DATE-OF-CREATION": "Date of creation",
+    "DATE-OF-COMPLETION": "Date of completion",
+    "UP": "Up",
+    "DOWN": "Down"
+  },
+  "NOTIFICATION": {
+    "TEXT": "Execution time of the elements:"
+  },
+  "VIEW": {
+    "FIND": "Find",
+    "CLEAR": "Clear",
+    "NAME": "Name",
+    "FROM": "From date of completion",
+    "TO": "To date of completion"
+  },
+  "EDITOR": {
+    "BTN-ADD-ELEMENT": "Add new element"
+  }
+}

@@ -1,0 +1,102 @@
+<button mat-icon-button style="float: right; margin: 5px" matDialogClose>
+  <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+  <h1>{{ title }}</h1>
+  <form action="">
+    <p>
+      <mat-form-field class="form-field">
+        <mat-label>{{ "DIALOG.NAME" | translate }}</mat-label>
+        <input
+          value="{{ data.name }}"
+          matInput
+          [formControl]="name"
+          minlength="5"
+        />
+        <mat-hint
+          *ngIf="name.invalid && (name.touched || name.dirty)"
+          class="text-danger"
+          ><span *ngIf="name.hasError('required')">{{
+            "DIALOG.NAME_ERROR_REQUIRED" | translate
+          }}</span>
+          <span *ngIf="name.hasError('minlength')">{{
+            "DIALOG.NAME_ERROR_MIN_LENGTH" | translate
+          }}</span>
+          <span *ngIf="name.hasError('maxlength')">{{
+            "DIALOG.NAME_ERROR_MAX_LENGTH" | translate
+          }}</span>
+        </mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="form-field">
+        <mat-label>{{ "DIALOG.DATE" | translate }}</mat-label>
+        <input
+          matInput
+          [ngxMatDatetimePicker]="picker"
+          [formControl]="dateControl"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="$any(picker)"
+        ></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker
+          #picker
+          [showSpinners]="showSpinners"
+          [showSeconds]="showSeconds"
+          [stepHour]="stepHour"
+          [stepMinute]="stepMinute"
+          [stepSecond]="stepSecond"
+          [touchUi]="touchUi"
+          [color]="color"
+          [enableMeridian]="enableMeridian"
+        >
+        </ngx-mat-datetime-picker>
+        <mat-hint
+          *ngIf="
+            dateControl.invalid && (dateControl.touched || dateControl.dirty)
+          "
+          class="text-danger"
+          ><span *ngIf="dateControl.hasError('required')">{{
+            "DIALOG.NAME_ERROR_REQUIRED" | translate
+          }}</span>
+        </mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="form-field">
+        <mat-label>{{ "DIALOG.DESCRIPTION" | translate }}</mat-label>
+        <textarea
+          #message
+          maxlength="256"
+          value="{{ data.description }}"
+          [formControl]="description"
+          matInput
+        ></textarea>
+        <mat-hint align="end">{{ message.value.length }} / 256</mat-hint>
+      </mat-form-field>
+    </p>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" *ngIf="data.isEdit">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="addElement()"
+    *ngIf="data.isEdit == true && data.isView == false"
+  >
+    {{ "DIALOG.ADD" | translate }}
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="saveElement()"
+    *ngIf="data.isEdit == true && data.isView == true"
+  >
+    {{ "DIALOG.SAVE" | translate }}
+  </button>
+  <button mat-raised-button color="warn" matDialogClose *ngIf="data.isEdit">
+    {{ "DIALOG.CLOSE" | translate }}
+  </button>
+</mat-dialog-actions>

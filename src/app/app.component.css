@@ -1,0 +1,14 @@
+.border-bottom {
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  font-size: 16px;
+}
+
+.form-select {
+  height: fit-content;
+  width: fit-content;
+  font-size: 16px;
+  margin-left: 5px;
+}

@@ -1,0 +1,68 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>{{ "TABLE.NAME" | translate }}</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="dateOfCreation">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ "TABLE.DATE-OF-CREATION" | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.dateOfCreation.toLocaleString("en-GB") }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="dateOfCompletion">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ "TABLE.DATE-OF-COMPLETION" | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.dateOfCompletion.toLocaleString("en-GB") }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element; let i = index">
+      <span *ngIf="isEditor">
+        <button (click)="deleteElement(i)" mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button (click)="copyElement(i)" mat-icon-button>
+          <mat-icon>file_copy</mat-icon>
+        </button>
+      </span>
+      <span *ngIf="!isEditor">
+        <button
+          (click)="menuClick()"
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+        >
+          <mat-icon>swap_vert</mat-icon>
+        </button>
+      </span>
+      <mat-menu #menu="matMenu">
+        <button (click)="upElement(i)" mat-menu-item>
+          <mat-icon>arrow_upward</mat-icon
+          ><span>{{ "TABLE.UP" | translate }}</span>
+        </button>
+        <button (click)="downElement(i)" mat-menu-item>
+          <mat-icon>arrow_downward</mat-icon
+          ><span>{{ "TABLE.DOWN" | translate }}</span>
+        </button>
+      </mat-menu>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let element; let i = index; columns: displayedColumns"
+    class="example-element-row"
+    (click)="openDialog(element, i)"
+  ></tr>
+</table>

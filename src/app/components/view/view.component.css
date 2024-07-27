@@ -1,0 +1,20 @@
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.margin {
+  margin-left: 20px;
+}
+
+tr.example-element-row:hover {
+  background: whitesmoke;
+}
+
+.btn {
+  margin-bottom: 15px;
+}
+.btn-clear {
+  margin-left: 10px;
+}
