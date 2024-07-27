@@ -8,8 +8,3 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-::ng-deep .mat-form-field-underline,
-::ng-deep .mat-form-field-ripple {
-  background-color: white !important;
-  color: white !important;
-}
